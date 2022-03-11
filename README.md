@@ -1,2 +1,2 @@
-# orbis_sample
+# Orbis Sample
 Tile service with Orbis tiles
