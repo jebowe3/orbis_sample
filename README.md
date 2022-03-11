@@ -27,3 +27,12 @@ Use the link https://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.jso
 
 ![QGIS_XYZ](png/QGIS_XYZ.PNG)  
 **Figure 02.** Accessing XYZ tiles in QGIS
+
+## 3. To use these tiles in ArcMap:
+
+### As a WMTS:
+
+Use the link https://s-lib024.lib.uiowa.edu/tileserver/wmts as shown in the following screenshot.
+
+![Arc_WMTS](png/Arc_WMTS.PNG)  
+**Figure 03.** Accessing WMTS in ArcMap
