@@ -1,7 +1,7 @@
 # Orbis Sample
 Proof of concept tile service with Orbis tiles...
 
-## 1. To use these tiles in a Leaflet map:
+## 1. To use these tiles in a Leaflet map (see a sample [here](https://jebowe3.github.io/orbis_sample/index.html)):
 
 ```javascript
 var Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.json?/orbis/{z}/{x}/{y}.png', {
