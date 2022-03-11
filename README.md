@@ -1,2 +1,22 @@
 # Orbis Sample
 Proof of concept tile service with Orbis tiles...
+
+## 1. To use these tiles in a Leaflet map:
+
+```javascript
+var Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.json?/orbis/{z}/{x}/{y}.png', {
+  minZoom: mapMinZoom,
+  maxZoom: mapMaxZoom,
+  bounds: mapBounds,
+  opacity: 1.0
+}).addTo(map);
+```
+
+## 2. To use these tiles in QGIS:
+
+### As a WMTS:
+
+Use the link https://s-lib024.lib.uiowa.edu/tileserver/wmts as shown in the following screenshot.
+
+![QGIS_WMTS](png/QGIS_WMTS.png)  
+**Figure 01.** Accessing WMTS in QGIS
