@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>orbis</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet-src.js"></script>
+    <script>
+      var overlay;
+      function init() {
+          var mapBounds = new L.LatLngBounds(
+              new L.LatLng(1.4061, -22.5),
+              new L.LatLng(59.3556, 94.7461));
+          var mapMinZoom = 0;
+          var mapMaxZoom = 12;
+        var map = L.map('map').setView([38,15.5], 6);
+
+        // Esri world terrain baselayer
+        const Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+          maxZoom: 19
+        }).addTo(map); // Add the baselayer to the map
+
+        // Sample orbis tiles
+        const Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.json?/orbis/{z}/{x}/{y}.png', {
+          minZoom: mapMinZoom, maxZoom: mapMaxZoom,
+          bounds: mapBounds,
+          opacity: 1.0
+        }).addTo(map);
+
+      }
+    </script>
+    <style>
+      html, body, #map { width:100%; height:100%; margin:0; padding:0; }
+    </style>
+  </head>
+  <body onload="init()">
+    <div id="map"></div>
+  </body>
+</html>
