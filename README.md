@@ -18,5 +18,5 @@ var Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserv
 
 Use the link https://s-lib024.lib.uiowa.edu/tileserver/wmts as shown in the following screenshot.
 
-![QGIS_WMTS](png/QGIS_WMTS.png)  
+![QGIS_WMTS](png/QGIS_WMTS.PNG)  
 **Figure 01.** Accessing WMTS in QGIS
