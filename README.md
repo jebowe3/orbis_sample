@@ -1,2 +1,2 @@
 # Orbis Sample
-Tile service with Orbis tiles
+Proof of concept tile service with Orbis tiles...
