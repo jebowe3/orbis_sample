@@ -1,48 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>orbis</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet-src.js"></script>
-    <script>
-      var overlay;
-      function init() {
-          var mapBounds = new L.LatLngBounds(
-              new L.LatLng(1.4061, -22.5),
-              new L.LatLng(59.3556, 94.7461));
-          var mapMinZoom = 0;
-          var mapMaxZoom = 12;
-        var map = L.map('map').setView([38,15.5], 6);
 
-        // Natural Earth Tiles with Shaded Relief
-        L.tileLayer('https://klokantech.github.io/naturalearthtiles/tiles/natural_earth_2_shaded_relief.raster/{z}/{x}/{y}.png', {
-          maxZoom: 19
-        }).addTo(map);
+<html lang="en">
 
-/*
-        // Esri world terrain baselayer
-        var Esri_WorldTerrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
-          attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
-          maxZoom: 19
-        }).addTo(map); // Add the baselayer to the map
-*/
-        // Sample orbis tiles
-        var Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.json?/orbis/{z}/{x}/{y}.png', {
-          minZoom: mapMinZoom,
-          maxZoom: mapMaxZoom,
-          bounds: mapBounds,
-          opacity: 1.0
-        }).addTo(map);
+<head>
+  <meta charset="utf-8" />
+  <!-- Give the page a title -->
+  <title>Orbis Sample</title>
+  <!-- Add a link to the Leaflet CSS library so you can reference it for styling your map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <!-- All the CSS code goes inside the style tags below -->
+  <style>
+    /* style the body */
+    body {
+      margin: 0px;
+      height: 100%;
+      width: 100%;
+    }
 
-      }
-    </script>
-    <style>
-      html, body, #map { width:100%; height:100%; margin:0; padding:0; }
-    </style>
-  </head>
-  <body onload="init()">
-    <div id="map"></div>
-  </body>
+    /* style the map */
+    #map {
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- the map -->
+  <div id="map"></div>
+  <!-- Add a link to the Leaflet JavaScript library so you can reference it for building your map -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <!-- All JavaScript goes inside the script tags below -->
+  <script>
+    // define map options
+    const mapOptions = {
+      center: [38,15.5], // center the map on the Mediterranean Sea
+      maxZoom: 10 // set the maximum zoom
+    };
+
+    // define the map with the options above
+    const map = L.map("map", mapOptions);
+
+    // fit the map to the boundaries of the Mediterranean Region
+    map.fitBounds(L.latLngBounds(L.latLng(30,-5), L.latLng(45,40)));
+
+    // Natural Earth Tiles with Shaded Relief
+    const natEarth_Tiles = L.tileLayer('https://klokantech.github.io/naturalearthtiles/tiles/natural_earth_2_shaded_relief.raster/{z}/{x}/{y}.png', {
+      maxNativeZoom: 6,
+      maxZoom: 10
+    }).addTo(map);
+
+    // Sample orbis tiles
+    const Orbis_Tiles = L.tileLayer('http://s-lib024.lib.uiowa.edu/tileserver/tileserver.php?/index.json?/orbis/{z}/{x}/{y}.png', {
+      minZoom: 0,
+      maxZoom: 10,
+      opacity: 1.0
+    }).addTo(map);
+
+  </script>
+</body>
+
 </html>
